@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Navigate } from "react-router-dom" //prettier-ignore
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./styles/global.scss";
+
+import MainLayout from "./layout/MainLayout";
+
+import pages from "./pages";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      {pages.map((page) => (
+        <Route key={page.path} path={page.path} element={<MainLayout Page={page.page} />} />
+      ))}
+    </>
+  )
+);
+
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App;

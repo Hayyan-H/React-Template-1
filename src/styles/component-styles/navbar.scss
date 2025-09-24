@@ -1,0 +1,97 @@
+@import "../scss_variables.scss";
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--nav-height);
+  padding: 0 clamp(15px, 3vw, 130px);
+  z-index: 10;
+  background-color: var(--color-4);
+  transition: background-color 0.3s ease, height 0.3s ease;
+
+  &.scroll {
+    background-color: var(--color-6);
+    height: var(--nav-scroll-height);
+  }
+
+  .navbar_left,
+  .navbar_right {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar_left {
+    width: 30%;
+    height: 100%;
+    .menu_btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: clamp(20px, 3vw, 30px);
+      cursor: pointer;
+      transition: color 0.3s ease;
+      padding: 5px;
+      margin-right: clamp(10px, 2vw, 20px);
+
+      &:hover {
+        color: var(--color-2);
+      }
+    }
+
+    .navbar_logo_container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      height: 100%;
+
+      .navbar_logo {
+        width: 100%;
+        max-height: 85%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .navbar_right {
+    width: clamp(450px, 45%, 750px);
+    .navbar_links_wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      .navbar_link_container .navbar_link {
+        font-size: clamp(25px, 2.3vw, 30px);
+        color: var(--color-8);
+        font-weight: 400;
+        transition: 0.25s ease color;
+        padding: 10px;
+
+        &:hover {
+          color: lighten($color-2, 5%);
+        }
+
+        &.active {
+          color: var(--color-2);
+        }
+      }
+    }
+  }
+}
+
+// navbar styles when there is sidenav
+.sidenav_wrapper ~ .navbar {
+  .navbar_right {
+    display: none;
+  }
+
+  .navbar_left {
+    width: 100%;
+    justify-content: center;
+    .menu_btn {
+      position: absolute;
+      left: 0;
+      margin-right: 0;
+    }
+  }
+}

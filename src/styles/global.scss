@@ -1,0 +1,103 @@
+:root {
+  --color-1: #0a3c3a;
+  --color-2: #065451;
+  --color-3: #047c6a;
+  --color-4: #129990;
+  --color-5: #3bb6a4;
+  --color-6: #7ac0b9;
+  --color-7: #b8e4de;
+  --color-8: #e0f7f4;
+  --color-9: #e5fefe;
+  --color-10: #fafdff;
+
+  --bg-color-1: #d3eeeb;
+  --bg-color-2: #bce5e0;
+  --bg-color-3: #a0d9d4;
+  --bg-color-4: #8ad0c9;
+  --bg-color-5: #6cc7be;
+  --bg-color-6: #4ebeb3;
+  --bg-color-7: #30b5a8;
+
+  --toast-red: #e94f4f;
+  --toast-green: #2ec472;
+
+  --text-size-1: clamp(3.2rem, 4vw, 4rem);
+  --text-size-2: clamp(2.4rem, 3vw, 2.8rem);
+  --text-size-3: clamp(1.8rem, 2.2vw, 2.2rem);
+  --text-size-4: clamp(1.3rem, 1.5vw, 1.5rem);
+  --text-size-5: clamp(1rem, 1vw, 1.2rem);
+
+  --text-color-1: #0a3c3a;
+
+  --nav-height: 75px;
+  --nav-scroll-height: 70px;
+
+  --reveal-transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --text-size-1: clamp(2.7rem, 7vw, 3rem);
+    --text-size-2: clamp(2rem, 5vw, 2.3rem);
+    --text-size-3: clamp(1.5rem, 3.5vw, 1.8rem);
+    --text-size-4: clamp(1.15rem, 2vw, 1.3rem);
+    --text-size-5: clamp(0.95rem, 1.2vw, 1.1rem);
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --text-size-1: clamp(1.5rem, 10vw, 2.7rem);
+    --text-size-2: clamp(1.2rem, 8vw, 2rem);
+    --text-size-3: clamp(1rem, 6vw, 1.5rem);
+    --text-size-4: clamp(0.92rem, 4vw, 1.15rem);
+    --text-size-5: clamp(0.85rem, 2.5vw, 0.95rem);
+  }
+}
+
+// SCSS VARIABLES HAVE TO BE CHANGED TOO!
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  position: relative;
+  box-sizing: border-box; // ensures padding happens inside the element, without growing size
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+}
+
+body,
+html,
+#root {
+  width: 100%;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  font-size: min(calc(var(--text-size-1) * 0.9), 3.5rem);
+  color: var(--text-color-1);
+  margin-bottom: 10vh;
+
+  @media (max-width: 900px) {
+    font-size: clamp(40px, 6vw, 43px);
+  }
+  @media (max-width: 600px) {
+    font-size: clamp(34px, 8vw, 40px);
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
