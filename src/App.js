@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { createBrowserRouter, createRoutesFromElements, RouterProvider, Navigate } from "react-router-dom" //prettier-ignore
+import { BrowserRouter as Route } from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom" //prettier-ignore
 
 import "./styles/global.scss";
 
