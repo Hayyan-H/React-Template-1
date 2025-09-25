@@ -1,0 +1,26 @@
+#root {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "navbar"
+    "main"
+    "footer";
+
+  .navbar {
+    position: sticky;
+    position: -webkit-sticky; /* Safari */
+    top: 0;
+    grid-area: navbar;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    grid-area: main;
+    width: 100%;
+  }
+  .footer {
+    grid-area: footer;
+  }
+}

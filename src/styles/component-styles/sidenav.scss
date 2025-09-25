@@ -1,0 +1,150 @@
+@import "../scss_variables.scss";
+
+.sidenav_wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  height: 100dvh;
+  width: 100vw;
+  pointer-events: none;
+
+  &.open {
+    pointer-events: auto;
+
+    .sidenav {
+      transform: translateX(0);
+    }
+
+    .sidenav_overlay {
+      opacity: 1;
+    }
+  }
+
+  .sidenav {
+    width: 78%;
+    height: 100%;
+    padding: 0 10px;
+    position: relative;
+    background: darken($color-4, 5%);
+    border-radius: 0 12px 12px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 15;
+    transform: translateX(-100%);
+    transition: 0.4s ease transform;
+
+    $active-color: darken($color-4, 17%);
+
+    .close_btn_wrapper {
+      position: absolute;
+      left: clamp(15px, 3vw, 130px); // use the same as for navbar
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: var(--nav-height);
+      .close_btn {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        width: fit-content;
+
+        .xmark {
+          position: absolute;
+          width: calc(clamp(20px, 5vw, 28px) + 2px);
+          height: 3px;
+          background-color: white;
+          transform: rotate(45deg);
+          top: 50%;
+          left: 50%;
+          transform-origin: center;
+          border-radius: 50px;
+        }
+
+        .xmark:nth-of-type(2) {
+          transform: rotate(-45deg);
+        }
+
+        &:hover {
+          color: var(--color-2);
+        }
+      }
+    }
+
+    .sidenav_links_container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-top: 65px;
+      .sidenav_link_item {
+        display: flex;
+        flex-direction: column;
+        padding: 12px 0;
+        border-bottom: 2px solid $color-5;
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .sidenav_link {
+          display: flex;
+          justify-content: center;
+          font-size: clamp(20px, 5.3vw, 26px);
+          color: $color-8 !important;
+          font-weight: 400;
+          transition: 0.3s ease color;
+
+          &.active {
+            color: $active-color !important;
+          }
+        }
+      }
+    }
+    .sidenav_footer {
+      position: relative;
+      width: 100%;
+      bottom: 20px;
+      .sidenav_footer_list {
+        width: 100%;
+        gap: 10px;
+        display: grid; // to set gap value
+
+        .sidenav_footer_list_item {
+          list-style: none;
+          font-size: clamp(15px, 6vw, 23px);
+          padding: 8px 0;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+
+          a {
+            color: $color-7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+              color: $active-color;
+            }
+          }
+          .sidenav_social_links {
+            display: flex;
+            gap: 30px;
+          }
+        }
+      }
+    }
+  }
+  .sidenav_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 14;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+}
